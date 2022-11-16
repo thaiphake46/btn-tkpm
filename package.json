@@ -1,0 +1,33 @@
+{
+  "name": "btl_tkpm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thaiphake46/Ph-n-t-ch-thi-t-k-ph-m-m-m.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thaiphake46/Ph-n-t-ch-thi-t-k-ph-m-m-m/issues"
+  },
+  "homepage": "https://github.com/thaiphake46/Ph-n-t-ch-thi-t-k-ph-m-m-m#readme",
+  "dependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/node": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "app-root-path": "^3.1.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
