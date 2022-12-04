@@ -8,7 +8,7 @@ let getHomePage = async (req, res) => {
         'SELECT * FROM `login`',
     );
     console.log(rows)
-    res.render('index.ejs', { dataUser: JSON.stringify(rows) })
+    res.render('index.ejs', { dataUser: 'huythai' })
 }
 
 let getSigninPage = (req, res) => {
