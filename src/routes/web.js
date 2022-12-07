@@ -10,6 +10,7 @@ const webRoutes = (app) => {
     route.get('/news', homeControllers.getNewsPage)
 
     route.get('/', homeControllers.getHomePage)
+    route.get('/about', homeControllers.getAboutPage)
     app.use('/', route)
 }
 

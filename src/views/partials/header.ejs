@@ -1,0 +1,14 @@
+<header>
+  <div class="nav">
+    <p>
+      Navigation header
+    </p>
+  </div>
+  <div class="login">
+    <% if(typeof user === 'string' && user) { %>
+      <p><a href="#">Xin chào <%= user %></a></p>
+    <% } else { %>
+      <p><a href="/sign-in">Đăng nhập / Đăng ký</a></p>
+    <% } %> 
+  </div>
+</header>
