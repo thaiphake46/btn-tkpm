@@ -14,6 +14,7 @@ const webRoutes = (app) => {
     route.get('/news', homeControllers.getNewsPage)
 
     app.post('/login', homeControllers.authLogIn)
+    app.post('/signup', homeControllers.authSignup)
     app.get('/logout', homeControllers.logOut)
 
     route.get('/', homeControllers.getHomePage)

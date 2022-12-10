@@ -14,18 +14,22 @@
     <%- include('./partials/backhome.ejs') %>
     <div class="form">
         <h1 class="form_title">Đăng ký</h1>
-        <form action="" method="post">
+        <form action="/signup" method="post">
             <div class="form_group">
-                <label for="username" class="form_label">Tên đăng nhập</label>
-                <input required type="text" id="username" class="form_control">
+                <label for="username" class="form_label">Tên người dùng</label>
+                <input required type="text" id="username" class="form_control" name="user">
+            </div>
+            <div class="form_group">
+                <label for="email" class="form_label">Email</label>
+                <input required type="text" id="email" class="form_control" name="email">
             </div>
             <div class="form_group">
                 <label for="password" class="form_label">Mật khẩu</label>
-                <input required type="text" id="password" class="form_control">
+                <input required type="text" id="password" class="form_control" name="password">
             </div>
             <div class="form_group">
                 <label for="password_confirm" class="form_label">Nhập lại mật khẩu</label>
-                <input required type="text" id="password_confirm" class="form_control">
+                <input required type="text" id="password_confirm" class="form_control" name="password_confirm">
             </div>
             <div class="btn_submit"><input type="submit" value="Đăng Ký"></div>
             <div class="link_page">Đã có tài khoản <a href="/sign-in">Đăng nhập</a></div>

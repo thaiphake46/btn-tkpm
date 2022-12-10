@@ -1,25 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     font-size: 18px;
-    background-color: #eee;
+    /* background-color: #eee; */
 }
 
 header,
 footer {
-    background-color: ghostwhite;
+    /* background-color: ghostwhite; */
+    background-color: #0b0b11;
 }
 
 header {
-    padding: 0 20px;
+    padding: 8px 40px 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444444;
 }
 
+/* logo */
+header .logo {
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+/* header navigation */
+nav ul {
+    display: flex;
+}
+
+nav div.bar {
+    display: none;
+    position: absolute;
+    right: 80px;
+    margin-top: -10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+nav div.bar.active .open {
+    display: none;
+}
+
+nav div.bar .close {
+    display: none;
+}
+
+nav div.bar.active .close {
+    display: initial;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 15px;
+    padding: 0 10px;
+    border-left: 1px solid #fff0;
+    border-right: 1px solid #fff0;
+    transition: 0.3s;
+}
+
+nav ul li:hover {
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+/* user account */
 header .user {
     position: relative;
     padding: 20px 0;
@@ -30,15 +95,24 @@ header .signin {
     padding: 20px 0;
 }
 
-header  .user_option {
+header .signin a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header .signin:hover a {
+    text-decoration: underline;
+}
+
+header .user_option {
     list-style-type: none;
     position: absolute;
     top: 100%;
-    left: 0;
-    background-color:#fff;
+    right: 0;
+    background-color: #fff;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     transform: scaleY(0);
-    transition: 0.3s;
+    transition: 0.2s;
     transform-origin: top;
 }
 
@@ -70,11 +144,12 @@ main {
 }
 
 .wrapper {
-    width: 1280px;
+    /* width: 1280px; */
+    width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 10px;
-    background-color: #fff;
+    padding: 0px;
+    color: #fff;
 }
 
 .main_content {

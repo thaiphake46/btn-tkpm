@@ -11,7 +11,7 @@ let getAboutPage = (req, res) => {
 
 let getHomePage = async (req, res) => {
     let currSession = req.session
-    if(currSession.loggedin){
+    if (currSession.loggedin) {
         res.render('index.ejs', { title: 'Home page', user: currSession.name })
     }
     else {
@@ -63,6 +63,30 @@ let logOut = (req, res) => {
     res.redirect('/')
 }
 
+let authSignup = async (req, res) => {
+    let { user, email, password, password_confirm } = req.body
+    // console.log(user, email, password, password_confirm )
+    if (user && email && password && password_confirm) {
+        if (password != password_confirm) {
+            res.send('Mật khẩu không chính xác')
+        }
+        let [rows] = await pool.execute(
+            'SELECT * FROM login WHERE email = ?',
+            [email]
+        )
+        if(rows[0]) {
+            res.send('Tài khoản đã tồn tại')
+        }
+        else {
+            await pool.execute(
+                'INSERT INTO `login` (`id`, `name`, `email`, `password`) VALUES (NULL, ?, ?, ?)',
+                [user, email, password]
+            )
+            res.redirect('/sign-in')
+        }
+    }
+}
+
 module.exports = {
     getHomePage,
     getAboutPage,
@@ -72,4 +96,5 @@ module.exports = {
     getNewsPage,
     authLogIn,
     logOut,
+    authSignup,
 }

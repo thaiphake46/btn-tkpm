@@ -1,11 +1,21 @@
 <header>
-  <div class="nav">
-    <p>
-      Navigation header
-    </p>
+  <div class="logo">
+    TIN TỨC
   </div>
+  <nav>
+    <ul>
+      <li><a href="#">Trang chủ</a></li>
+      <li><a href="#sportsNews">Thể Thao</a></li>
+      <li><a href="#businessNews">Kinh Doanh</a></li>
+      <li><a href="#techNews">Công Nghệ</a></li>
+    </ul>
+    <div class="bar">
+      <i class="open fa-solid fa-bars-staggered"></i>
+      <i class="close fa-solid fa-xmark"></i>
+    </div>
+  </nav>
   <div class="login">
-    <% if(typeof user === 'string' && user) { %>
+    <% if(typeof user==='string' && user) { %>
       <div class="user">
         <p class="username">Xin chào <%= user %> <i class="fa-sharp fa-solid fa-chevron-down"></i></p>
         <ul class="user_option">
@@ -16,6 +26,6 @@
       </div>
     <% } else { %>
       <p class="signin"><a href="/sign-in">Đăng nhập / Đăng ký</a></p>
-    <% } %> 
+    <% } %>
   </div>
 </header>
