@@ -1,3 +1,139 @@
-<h1>Home</h1>
-<p>This is the home page and it take the full width of the layout</p>
-<a href="/about">About</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css" integrity="sha512-HHsOC+h3najWR7OKiGZtfhFIEzg5VRIPde0kB0bG2QRidTQqf+sbfcxCTB16AcFB93xMjnBIKE29/MjdzXE+qw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../public/css/index.css">
+    <title>News Website</title>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            TIN TỨC
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#sportsNews">Thể Thao</a></li>
+                <li><a href="#businessNews">Kinh Doanh</a></li>
+                <li><a href="#techNews">Công Nghệ</a></li>
+            </ul>
+            <div class="bar">
+                <i class="open fa-solid fa-bars-staggered"></i>
+                <i class="close fa-solid fa-xmark"></i>
+            </div>
+        </nav>
+            <div class="user">
+                <i class="fa-solid fa-user"></i>
+                <div class="login_in hide">
+                    <button><a href="">Đăng nhập</a> </button>
+                    <button><a href="">Đăng ký</a></button>
+                </div>
+            </div>
+    </div>
+    <div class="topHeadlines">
+        <div class="left">
+            <div class="title">
+                <h2>Breaking News</h2>
+            </div>
+            <div class="img" id="breakingImg">
+                
+            </div>
+            <div class="text" id="breakingNews">
+                <div class="title">
+                    
+                </div>
+                <div class="description">
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="title">
+                <h2>Top Headlines</h2>
+            </div>
+            <div class="topNews">
+    
+            </div>
+
+        </div>
+    </div>
+    <div class="page2">
+        <div class="news" id="sportsNews">
+            <div class="title">
+                <h2>Thể Thao</h2>
+            </div>
+            <div class="newsBox">
+            </div>
+        </div>
+        <div class="news" id="businessNews">
+            <div class="title">
+                <h2>Kinh Doanh</h2>
+            </div>
+            <div class="newsBox">
+            </div>
+        </div>
+        <div class="news" id="techNews">
+            <div class="title">
+                <h2>Công Nghệ</h2>
+            </div>
+            <div class="newsBox">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="box">
+            <div class="left">
+                <div class="categories">
+                    <p>Categories</p>
+                    <div>
+                        <p>Thể Thao</p>
+                    </div>
+                    <div>
+                        <p>Kinh Doanh</p>
+                    </div>
+                    <div>
+                        <p>Công Nghệ</p>
+                    </div>
+                </div>
+                <div class="contactUs">
+                    <div class="contact">
+                        <p>Liên Hệ</p>
+                        <div>Phone - <span>0562421094</span></div>
+                        <div>Email - <span>20010990@st.phenikaa-uni.edu.vn</span></div>
+                        <div>Địa Chỉ - <span>P. Nguyễn Trác, Yên Nghĩa, Hà Đông, Hà Nội, Việt Nam</span></div>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-brands fa-square-facebook" href="https://www.facebook.com/"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="newsletter">
+                    <p>Hãy theo dõi bản tin của chúng tôi</p>
+                    <div class="email">
+                        <input type="email" placeholder="Nhập địa chỉ Email của bạn">
+                        <button>Đăng kí</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights">
+            Bản quyền thuộc ki thuật phần mềm 2022
+        </div>
+    </div>
+    <script>
+        let userbtn = document.querySelector(".user i")
+        let modal=document.querySelector(".user .login_in");
+        userbtn.addEventListener("click", () => {
+            modal.classList.toggle("hide")
+        })
+    </script>
+    
+</body>
+</html>
