@@ -5,19 +5,63 @@
 }
 
 body {
-    font-size: 16px;
+    font-size: 18px;
     background-color: #eee;
 }
 
 header,
 footer {
     background-color: ghostwhite;
-    padding: 20px;
 }
 
 header {
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
+}
+
+header .user {
+    position: relative;
+    padding: 20px 0;
+    cursor: pointer;
+}
+
+header .signin {
+    padding: 20px 0;
+}
+
+header  .user_option {
+    list-style-type: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color:#fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transform: scaleY(0);
+    transition: 0.3s;
+    transform-origin: top;
+}
+
+header .user:hover .user_option {
+    transform: scaleY(1);
+}
+
+header .user_option li {
+    padding: 8px;
+    min-width: 180px
+}
+
+header .user_option li i {
+    min-width: 20px
+}
+
+header .user_option li a {
+    text-decoration: none;
+    color: #000;
+}
+
+header .user_option li:hover a {
+    text-decoration: underline;
 }
 
 main {

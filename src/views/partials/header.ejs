@@ -6,9 +6,16 @@
   </div>
   <div class="login">
     <% if(typeof user === 'string' && user) { %>
-      <p><a href="#">Xin chào <%= user %></a></p>
+      <div class="user">
+        <p class="username">Xin chào <%= user %> <i class="fa-sharp fa-solid fa-chevron-down"></i></p>
+        <ul class="user_option">
+          <li><a href="#"><i class="fa-regular fa-user"></i> Trang cá nhân</a></li>
+          <li><a href="#"><i class="fa-sharp fa-solid fa-bookmark"></i> Đang theo dõi</a></li>
+          <li><a href="/logout"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a></li>
+        </ul>
+      </div>
     <% } else { %>
-      <p><a href="/sign-in">Đăng nhập / Đăng ký</a></p>
+      <p class="signin"><a href="/sign-in">Đăng nhập / Đăng ký</a></p>
     <% } %> 
   </div>
 </header>
