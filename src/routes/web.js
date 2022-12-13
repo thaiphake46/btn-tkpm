@@ -10,7 +10,15 @@ const webRoutes = (app) => {
 
     route.get('/sign-in', homeControllers.getSigninPage)
     route.get('/sign-up', homeControllers.getSignupPage)
+
     route.get('/admin', homeControllers.getAdminPage)
+    route.get('/admin/write-news', homeControllers.getWriteNewsPage)
+    route.get('/admin/manager-news', homeControllers.getManagerNews)
+    route.post('/admin/write-news/upload', homeControllers.uploadNews)
+    route.post('/admin/write-news/delete', homeControllers.deleteNews)
+    route.get('/admin/write-news/edit/:newsid', homeControllers.editNewsPage)
+    route.post('/admin/write-news/edit-news', homeControllers.handleEditNews)
+    
     route.get('/news', homeControllers.getNewsPage)
 
     app.post('/login', homeControllers.authLogIn)

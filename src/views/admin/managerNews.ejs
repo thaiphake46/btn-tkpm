@@ -1,0 +1,39 @@
+<h1>manager news</h1>
+
+<table id="customers">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tiêu đề</th>
+      <th>Chủ đề</th>
+      <th>Mô tả</th>
+      <th>...</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let i=0; i < data.length; i++) { %>
+      <tr>
+        <td>
+              <%= data[i].newsid %>
+        </td>
+        <td>
+              <%= data[i].title %>
+        </td>
+        <td>
+              <%= data[i].topic %>
+        </td>
+        <td>
+          <%= data[i].description %>
+        </td>
+        <td>
+          <button><a href="#">Chi tiết</a></button>
+          <button><a href="/admin/write-news/edit/<%= data[i].newsid %>">Sửa</a></button>
+          <form action="/admin/write-news/delete" method="post">
+            <input type="text" hidden value="<%= data[i].newsid %>" name="newsid">
+            <input type="submit" value="Xóa">
+          </form>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>

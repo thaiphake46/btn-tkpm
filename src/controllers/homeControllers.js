@@ -27,10 +27,6 @@ let getSignupPage = (req, res) => {
     res.render('signup.ejs', { title: 'Sign up', layout: 'signup.ejs' })
 }
 
-let getAdminPage = (req, res) => {
-    res.render('admin.ejs', { title: 'Admin page', layout: 'admin.ejs' })
-}
-
 let getNewsPage = (req, res) => {
     res.render('news.ejs')
 }
@@ -74,7 +70,7 @@ let authSignup = async (req, res) => {
             'SELECT * FROM login WHERE email = ?',
             [email]
         )
-        if(rows[0]) {
+        if (rows[0]) {
             res.send('Tài khoản đã tồn tại')
         }
         else {
@@ -87,6 +83,73 @@ let authSignup = async (req, res) => {
     }
 }
 
+let getAdminPage = (req, res) => {
+    res.render('admin/admin.ejs', {
+        title: 'Admin page',
+        layout: 'admin/adminLayout.ejs'
+    })
+}
+
+let getWriteNewsPage = (req, res) => {
+    res.render('admin/writeNews.ejs', {
+        title: 'Admin page',
+        layout: 'admin/adminLayout.ejs'
+    })
+}
+
+let getManagerNews = async (req, res) => {
+    let [rows] = await pool.execute(
+        'SELECT * FROM `news`'
+    )
+    // console.log(rows)
+    res.render('admin/managerNews.ejs', {
+        title: 'Manager news page',
+        layout: 'admin/adminLayout.ejs',
+        data: rows
+    })
+}
+
+
+let uploadNews = async (req, res) => {
+    let { title, topic, description, editor } = req.body
+    await pool.execute(
+        "INSERT INTO `news` (`newsid`, `title`, `topic`, `image_title`, `description`, `content`) VALUES (NULL, ?, ?, '', ?, ?)",
+        [title, topic, description, editor]
+    )
+    res.redirect('/admin/manager-news')
+}
+
+let deleteNews = async (req, res) =>{
+    let {newsid} = req.body
+    await pool.execute(
+        "DELETE FROM `news` WHERE `news`.`newsid` = ?",
+        [newsid]
+    )
+    res.redirect('/admin/manager-news')
+}
+
+let editNewsPage = async (req, res) => {
+    let newsid = req.params.newsid
+    let [rows] = await pool.execute(
+        "SELECT * FROM `news` WHERE newsid = ?",
+        [newsid]
+    )
+    res.render('admin/handleEditNews.ejs', {
+        title: 'Edit news page',
+        layout: 'admin/adminLayout.ejs',
+        data: rows[0]
+    })
+}
+
+let handleEditNews = async (req, res) => {
+    let {newsid, title, topic, description, editor} = req.body
+    await pool.execute(
+        "UPDATE `news` SET `title` = ?, `topic` = ?, `description` = ?, `content` = ? WHERE `news`.`newsid` = ?",
+        [title, topic, description, editor, newsid]
+    )
+    res.redirect('/admin/manager-news')
+}
+
 module.exports = {
     getHomePage,
     getAboutPage,
@@ -97,4 +160,10 @@ module.exports = {
     authLogIn,
     logOut,
     authSignup,
+    getWriteNewsPage,
+    uploadNews,
+    getManagerNews,
+    deleteNews,
+    editNewsPage,
+    handleEditNews,
 }

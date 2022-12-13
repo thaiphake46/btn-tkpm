@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* side bar admin */
+.admin_side_bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 80%;
+  background-color: #2f3a45;
+}
+
+.admin_heading {
+  color: #fff;
+  padding: 16px 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.admin_nav {
+  background-color: #2f3a45;
+}
+
+.admin_nav li:hover {
+  transition: 0.2s;
+}
+
+.admin_nav li:hover {
+  background-color: #1e2730;
+}
+
+.admin_nav li a {
+  display: block;
+  padding: 8px;
+  color: #fff;
+}
+
+/* content */
+.admin_content {
+  position: fixed;
+  top: 0;
+  left: 20%;
+  bottom: 0;
+  right: 0%;
+  background-color: #ccc;
+}
+
+/* write news page */
+.text_editor {
+  width: 800px;
+  max-width: calc(100% - 16px);
+  margin: 20px auto 0;
+}
+
+.submit_news_editor {
+  border: none;
+  outline: none;
+  min-width: 100px;
+  font-size: 18px;
+  padding: 8px;
+  margin-top: 6px;
+  background-color: #fff;
+  cursor: pointer;
+  display: block;
+}
+
+.form_group {
+  margin-bottom: 8px;
+}
+
+.form_group .form_control,
+.form_group .form_label {
+  display: block;
+  font-size: 18px;
+}
+
+.form_group .form_label {
+  margin-bottom: 4px;
+}
+
+.form_group .form_control {
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #000;
+}
+
+/* manager page */
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}

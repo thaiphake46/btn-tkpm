@@ -1,0 +1,46 @@
+<div class="news_editor">
+  <div class="text_editor">
+    <form action="/admin/write-news/upload" method="post">
+      <div class="form_group">
+        <label for="input_title" class="form_label">Tiêu đề</label>
+        <input type="text" id="input_title" class="form_control" name="title">
+      </div>
+      <div class="form_group">
+        <label for="input_topic" class="form_label">Chủ đề</label>
+        <input type="text" id="input_topic" class="form_control" name="topic">
+      </div>
+      <div class="form_group">
+        <label for="input_description" class="form_label">Mô tả</label>
+        <input type="text" id="input_description" class="form_control" name="description">
+      </div>
+      <div class="form_group">
+        <label for="editor">Nội dung</label>
+        <textarea name="editor" id="editor" cols="80" rows="20"></textarea>
+      </div>
+      <input class="submit_news_editor" type="submit" value="Đăng bài">
+    </form>
+  </div>
+
+  <div class="view_new">
+    <h1 class="title_news"></h1>
+    <div class="content_news"></div>
+  </div>
+</div>
+
+<script>
+  CKEDITOR.replace('editor');
+  // let btn = document.querySelector('.submit_news_editor')
+  // btn.addEventListener('click', () => {
+  //   let titleNews = document.querySelector('#input_title').value
+  //   let contentNews = CKEDITOR.instances.editor.getData();
+  //   let contentNewsView = {}
+  //   contentNewsView.title = titleNews
+  //   contentNewsView.content = contentNews
+  //   console.log(contentNewsView.title)
+  //   console.log(contentNewsView.content)
+  //   let title_news = document.querySelector('.view_new .title_news')
+  //   let content_news = document.querySelector('.view_new .content_news')
+  //   title_news.innerHTML = titleNews
+  //   content_news.innerHTML = contentNews
+  // })
+</script>
