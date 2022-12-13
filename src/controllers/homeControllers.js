@@ -11,11 +11,31 @@ let getAboutPage = (req, res) => {
 
 let getHomePage = async (req, res) => {
     let currSession = req.session
+    let [rows] = await pool.execute(
+        "SELECT * FROM news ORDER BY newsid DESC LIMIT 4"
+    )
+    let [sportsNews] = await pool.execute(
+        "SELECT * FROM news WHERE topic = 'thể thao' ORDER BY newsid DESC LIMIT 5"
+    )
+    let [educationNews] = await pool.execute(
+        "SELECT * FROM news WHERE topic = 'giáo dục' ORDER BY newsid DESC LIMIT 5"
+    )
+    let [techNews] = await pool.execute(
+        "SELECT * FROM news WHERE topic = 'công nghệ' ORDER BY newsid DESC LIMIT 5"
+    )
+    let returnData = {
+        title: 'Home page',
+        user: currSession.name,
+        dataNews: rows,
+        sportsNews: sportsNews,
+        educationNews: educationNews,
+        techNews: techNews
+    }
     if (currSession.loggedin) {
-        res.render('index.ejs', { title: 'Home page', user: currSession.name })
+        res.render('index.ejs', returnData)
     }
     else {
-        res.render('index.ejs', { title: 'Home page', user: '' })
+        res.render('index.ejs', returnData)
     }
 }
 
@@ -27,8 +47,20 @@ let getSignupPage = (req, res) => {
     res.render('signup.ejs', { title: 'Sign up', layout: 'signup.ejs' })
 }
 
-let getNewsPage = (req, res) => {
-    res.render('news.ejs')
+let getNewsPage = async (req, res) => {
+    // console.log(req.params)
+    let currSession = req.session
+    let {newsid, title} = req.params
+    let [rows] = await pool.execute(
+        "SELECT * FROM news WHERE newsid = ?",
+        [newsid]
+    )
+    // console.log(rows)
+    res.render('news.ejs', {
+        title: rows[0].title,
+        user: currSession.name,
+        data: rows[0]
+    })
 }
 
 let authLogIn = async (req, res) => {
@@ -99,7 +131,7 @@ let getWriteNewsPage = (req, res) => {
 
 let getManagerNews = async (req, res) => {
     let [rows] = await pool.execute(
-        'SELECT * FROM `news`'
+        'SELECT * FROM `news` ORDER BY newsid DESC'
     )
     // console.log(rows)
     res.render('admin/managerNews.ejs', {
@@ -111,16 +143,16 @@ let getManagerNews = async (req, res) => {
 
 
 let uploadNews = async (req, res) => {
-    let { title, topic, description, editor } = req.body
+    let { title, img, topic, description, editor } = req.body
     await pool.execute(
-        "INSERT INTO `news` (`newsid`, `title`, `topic`, `image_title`, `description`, `content`) VALUES (NULL, ?, ?, '', ?, ?)",
-        [title, topic, description, editor]
+        "INSERT INTO `news` (`newsid`, `title`, `topic`, `image_title`, `description`, `content`) VALUES (NULL, ?, ?, ?, ?, ?)",
+        [title, topic, img, description, editor]
     )
     res.redirect('/admin/manager-news')
 }
 
-let deleteNews = async (req, res) =>{
-    let {newsid} = req.body
+let deleteNews = async (req, res) => {
+    let { newsid } = req.body
     await pool.execute(
         "DELETE FROM `news` WHERE `news`.`newsid` = ?",
         [newsid]
@@ -142,10 +174,10 @@ let editNewsPage = async (req, res) => {
 }
 
 let handleEditNews = async (req, res) => {
-    let {newsid, title, topic, description, editor} = req.body
+    let { newsid, title, topic, img, description, editor } = req.body
     await pool.execute(
-        "UPDATE `news` SET `title` = ?, `topic` = ?, `description` = ?, `content` = ? WHERE `news`.`newsid` = ?",
-        [title, topic, description, editor, newsid]
+        "UPDATE `news` SET `title` = ?, `topic` = ?, `image_title` = ?, `description` = ?, `content` = ? WHERE `news`.`newsid` = ?",
+        [title, topic, img, description, editor, newsid]
     )
     res.redirect('/admin/manager-news')
 }

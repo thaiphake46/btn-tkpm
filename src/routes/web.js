@@ -19,13 +19,13 @@ const webRoutes = (app) => {
     route.get('/admin/write-news/edit/:newsid', homeControllers.editNewsPage)
     route.post('/admin/write-news/edit-news', homeControllers.handleEditNews)
     
-    route.get('/news', homeControllers.getNewsPage)
-
     app.post('/login', homeControllers.authLogIn)
     app.post('/signup', homeControllers.authSignup)
     app.get('/logout', homeControllers.logOut)
 
     route.get('/', homeControllers.getHomePage)
+    route.get('/news/:newsid/:title', homeControllers.getNewsPage)
+
     route.get('/about', homeControllers.getAboutPage)
     app.use('/', route)
 }

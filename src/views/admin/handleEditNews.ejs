@@ -2,11 +2,15 @@
   <div class="text_editor">
     <form action="/admin/write-news/edit-news" method="post">
       <div class="form_group">
-        <input type="text" name="newsid" value="<%= data.newsid %>">
+        <input hidden type="text" name="newsid" value="<%= data.newsid %>">
       </div>
       <div class="form_group">
         <label for="input_title" class="form_label">Tiêu đề</label>
         <input type="text" id="input_title" class="form_control" name="title" value="<%= data.title %>">
+      </div>
+      <div class="form_group">
+        <label for="input_img" class="form_label">Hình ảnh</label>
+        <input type="text" id="input_img" class="form_control" name="img" value="<%= data.image_title %>">
       </div>
       <div class="form_group">
         <label for="input_topic" class="form_label">Chủ đề</label>

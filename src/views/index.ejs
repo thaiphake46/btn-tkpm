@@ -1,27 +1,45 @@
 <div class="topHeadlines">
   <div class="left">
-    <div class="title">
-      <h2>Breaking News</h2>
+    <div class="breakingImg" id="breakingImg">
+      <div class="breakingImg_img">
+        <a href="/news/<%= dataNews[0].newsid %>/<%= dataNews[0].title %>">
+          <img src="<%= dataNews[0].image_title %>" alt="">
+        </a>
+      </div>
     </div>
-    <div class="img" id="breakingImg">
 
-    </div>
     <div class="text" id="breakingNews">
       <div class="title">
-
+        <a href="/news/<%= dataNews[0].newsid %>/<%= dataNews[0].title %>">
+          <h2><%= dataNews[0].title %></h2>
+        </a>
       </div>
       <div class="description">
+        <a href="/news/<%= dataNews[0].newsid %>/<%= dataNews[0].title %>">
+          <p class="breakingImg_description"><%= dataNews[0].description %></p>
+        </a>
       </div>
     </div>
   </div>
+
   <div class="right">
-    <div class="title">
-      <h2>Top Headlines</h2>
-    </div>
     <div class="topNews">
+      <% for(let i = 1; i < dataNews.length; i++){%>
+        <div class="news">
+          <div class="breakingImg">
+            <a href="/news/<%= dataNews[i].newsid %>/<%= dataNews[i].title %>">
+              <img src="<%= dataNews[i].image_title %>" alt="">
+            </a>
+          </div>
 
+          <div class="text">
+            <h4 class="title">
+              <a href="/news/<%= dataNews[i].newsid %>/<%= dataNews[i].title %>"><p><%= dataNews[i].title %></p></a>
+            </h4>
+          </div>          
+        </div>
+      <% } %> 
     </div>
-
   </div>
 </div>
 
@@ -31,20 +49,70 @@
           <h2>Thể Thao</h2>
       </div>
       <div class="newsBox">
+        <% for(let i = 0; i < sportsNews.length; i++){%>
+          <div class="newsCard">
+            <div class="img">
+              <a href="/news/<%= sportsNews[i].newsid %>/<%= sportsNews[i].title %>">
+                <img src="<%= sportsNews[i].image_title %>" alt="">
+              </a>
+            </div>
+            <div class="text">
+              <h4 class="title">
+                <a href="/news/<%= sportsNews[i].newsid %>/<%= sportsNews[i].title %>">
+                  <p><%= sportsNews[i].title %></p>
+                </a>
+              </h4>
+            </div>
+          </div>
+        <% } %> 
       </div>
   </div>
+
   <div class="news" id="educationNews">
       <div class="title">
           <h2>Giáo dục</h2>
       </div>
       <div class="newsBox">
+        <% for(let i = 0; i < educationNews.length; i++){%>
+          <div class="newsCard">
+            <div class="img">
+              <a href="/news/<%= educationNews[i].newsid %>/<%= educationNews[i].title %>">
+                <img src="<%= educationNews[i].image_title %>" alt="">
+              </a>
+            </div>
+            <div class="text">
+              <h4 class="title">
+                <a href="/news/<%= educationNews[i].newsid %>/<%= educationNews[i].title %>">
+                  <p><%= educationNews[i].title %></p>
+                </a>
+              </h4>
+            </div>
+          </div>
+        <% } %>
       </div>
   </div>
+
   <div class="news" id="techNews">
       <div class="title">
           <h2>Công Nghệ</h2>
       </div>
       <div class="newsBox">
+        <% for(let i = 0; i < techNews.length; i++){%>
+          <div class="newsCard">
+            <div class="img">
+              <a href="/news/<%= techNews[i].newsid %>/<%= techNews[i].title %>">
+                <img src="<%= techNews[i].image_title %>" alt="">
+              </a>
+            </div>
+            <div class="text">
+              <h4 class="title">
+                <a href="/news/<%= techNews[i].newsid %>/<%= techNews[i].title %>">
+                  <p><%= techNews[i].title %></p>
+                </a>
+              </h4>
+            </div>
+          </div>
+        <% } %>
       </div>
   </div>
 </div>

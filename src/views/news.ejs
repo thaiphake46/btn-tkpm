@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News</title>
-</head>
-
-<body>
-  <h1>News</h1>
-</body>
-
-</html>
+<div class="news_page_container">
+  <div class="news_container">
+    <h2 class="title"><%= data.title %></h2>
+    <h4 class="description"><%= data.description %></h4>
+    <div class="news_content">
+      <input hidden type="text" value="<%= data.content %>">
+      <div class="text_test"></div>
+    </div>
+  </div>
+</div>
+<script>
+  let msg = document.querySelector('.news_content input').value
+  document.querySelector('.news_content .text_test').innerHTML = msg
+</script>

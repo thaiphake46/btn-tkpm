@@ -60,6 +60,7 @@ a {
   bottom: 0;
   right: 0%;
   background-color: #ccc;
+  overflow-y: scroll;
 }
 
 /* write news page */
